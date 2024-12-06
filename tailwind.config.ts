@@ -8,9 +8,12 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      colors: {},
+      backgroundImage: {
+        "hero-img": "url('/images/hero-img.webp')",
+      },
+      rotate: {
+        "90.139": "90.139deg",
       },
     },
   },

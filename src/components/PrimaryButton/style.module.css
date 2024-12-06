@@ -1,0 +1,10 @@
+/* .button:enabled:hover {
+  background-color: transparent;
+  color: var(--secondary-text-color);
+  border-color: var(--secondary-text-color);
+} */
+
+.button:disabled {
+  cursor: not-allowed;
+  background-color: var(--grey-color);
+}

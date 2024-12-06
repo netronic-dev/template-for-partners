@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Icons } from "@/components/Icons";
+import { Header } from "@/components/Header";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const manrope = localFont({
+  src: "./fonts/Manrope-VariableFont_wght.woff2",
+  variable: "--font-manrope",
   weight: "100 900",
 });
 
@@ -25,10 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${manrope.variable} antialiased`}>
+        <Icons />
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );
