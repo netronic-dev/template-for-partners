@@ -1,25 +1,30 @@
+import Image from "next/image";
 import { Icon } from "../Icon";
 import imgOne from "../../../public/images/welcome-img-1.webp";
 import imgTwo from "../../../public/images/welcome-img-2.webp";
 import imgThree from "../../../public/images/welcome-img-3.webp";
 import imgFour from "../../../public/images/welcome-img-4.webp";
 import bg from "../../../public/images/welcome-bg.webp";
-import Image from "next/image";
 
 const WelcomeSection = () => {
   return (
     <section className="pt-[126px] pb-[131px] relative overflow-hidden mt-[-17px]">
       <div className="absolute top-[-63%] right-[-107%] w-[1918px] h-[2143px] rotate-[90.139] z-[-1]">
-        <Image src={bg} alt="Welcome section bg" width={1918} height={2143} />
+        <Image
+          src={bg}
+          alt="Welcome section bg"
+          className="w-[1918px] h-auto"
+          loading="lazy"
+        />
       </div>
       <div className="pl-[68px] relative">
         <div className="flex items-center gap-[61px] mb-[24px]">
-          <h2 className="max-w-[344px] text-[var(--secondary-text-color)] text-[50px] font-manrope font-semibold uppercase]">
+          <h3 className="max-w-[344px] text-[var(--secondary-text-color)] text-[50px] font-manrope font-semibold uppercase]">
             WELCOME <br />
             <span className="text-[var(--accent-color)]">
               TO NETRONIC UNIVERSE
             </span>
-          </h2>
+          </h3>
           <button
             aria-label="Play video"
             className="flex items-center justify-center w-[96px] h-[96px] rounded-full border-[1px] border-solid border-[#E8E8E8] cursor-pointer"
