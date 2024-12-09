@@ -16,3 +16,27 @@ body {
   color: var(--secondary-text-color);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-text-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
