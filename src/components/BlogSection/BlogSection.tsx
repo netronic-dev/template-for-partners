@@ -31,7 +31,7 @@ const BlogSection = () => {
           Блог
         </h2>
         <div className="flex items-center gap-[18px] mb-[38px] md:mb-0 justify-center">
-          <div
+          <button
             aria-label="Arrow left"
             onClick={handleChangePrevImg}
             className="cursor-pointer transition-all hover:bg-[var(--accent-color)] group w-[50px] h-[50px] border-solid border-[1px] border-[var(--accent-color)] flex items-center justify-center rounded-[50%]"
@@ -42,8 +42,8 @@ const BlogSection = () => {
               height={12}
               className="group-hover:text-[var(--primary-text-color)] text-[var(--accent-color)]"
             />
-          </div>
-          <div
+          </button>
+          <button
             aria-label="Arrow right"
             onClick={handleChangeNextImg}
             className="cursor-pointer hover:bg-[var(--accent-color)] transition-all group w-[50px] h-[50px] border-solid border-[1px] border-[var(--accent-color)] flex items-center justify-center rounded-[50%]"
@@ -54,7 +54,7 @@ const BlogSection = () => {
               height={12}
               className="group-hover:text-[var(--primary-text-color)] text-[var(--accent-color)]"
             />
-          </div>
+          </button>
         </div>
       </div>
       <Swiper
@@ -85,7 +85,13 @@ const BlogSection = () => {
             className="flex-shrink-0 w-full md:w-[300px]"
           >
             <div className="relative w-full h-[303px] mb-[15px] ">
-              <Image src={item.img} alt={item.title} fill />
+              <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                sizes="100%"
+                className="object-cover rounded-[20px]"
+              />
             </div>
             <p className="text-[var(--accent-color)] font-manrope text-sm leading-[normal] font-light mb-[15px]">
               {item.date}

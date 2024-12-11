@@ -4,8 +4,8 @@ import style from "./style.module.css";
 
 interface Props {
   children?: ReactNode;
-  size?: "standard";
-  background?: "black" | "white";
+  size?: "standard" | "full";
+  background?: "black" | "white" | "blue";
   color?: "black" | "white";
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   type?: "button" | "submit";
@@ -26,6 +26,7 @@ const button = cva("button", {
     },
     size: {
       standard: ["text-sm tracking-[0.28px] w-[199px] h-[43px]"],
+      full: ["text-base leading-[23px] font-bold w-full h-[56px]"],
     },
     background: {
       black: [
@@ -33,6 +34,9 @@ const button = cva("button", {
       ],
       white: [
         "bg-[var(--primary-text-color)] hover:bg-[transparent] hover:border-[var(--primary-text-color)]",
+      ],
+      blue: [
+        "bg-[var(--accent-color)] hover:bg-[var(--primary-text-color)] hover:border-[var(--accent-color)] rounded-[8px]",
       ],
     },
     color: {

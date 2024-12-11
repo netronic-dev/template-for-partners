@@ -29,12 +29,13 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <header
       id="main"
       className="fixed z-20 top-0 left-0 bg-[var(--primary-text-color)] py-[14px] border-[1px] border-solid border-[#C4C4C4] rounded-b-[20px] w-[100vw]"
     >
-      <div className="flex justify-between items-center px-[71px] mx-auto">
+      <div className="flex justify-between items-center px-[71px] max-w-[1512px] mx-auto">
         <Link
           prefetch
           href="#main"

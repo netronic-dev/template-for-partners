@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Icons } from "@/components/Icons";
 import { Header } from "@/components/Header";
+import { StoreProvider } from "@/store/StoreProvider";
+import { Footer } from "@/components/Footer";
 
 const manrope = localFont({
   src: "./fonts/Manrope-VariableFont_wght.woff2",
@@ -22,11 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} antialiased`}>
-        <Icons />
-        <Header />
-        <main>{children}</main>
-      </body>
+      <StoreProvider>
+        <body className={`${manrope.variable} antialiased`}>
+          <Icons />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </StoreProvider>
     </html>
   );
 }
