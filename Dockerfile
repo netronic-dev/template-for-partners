@@ -24,7 +24,7 @@ FROM node:19.6.1 AS runner
 WORKDIR /app
 
 COPY --from=build /app/package.json .
-COPY --from=build /app/next.config.js .
+COPY --from=build /app/next.config.ts .
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/node_modules ./node_modules
