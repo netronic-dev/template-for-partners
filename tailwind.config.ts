@@ -10,6 +10,9 @@ export default {
     extend: {
       colors: {},
       backgroundImage: {
+        "mobile-hero-img": "url('/images/mobile-hero-img.webp')",
+        "tablet-hero-img": "url('/images/tablet-hero-img.webp')",
+        "big-tablet-hero-img": "url('/images/big-tablet-hero-img.webp')",
         "hero-img": "url('/images/hero-img.webp')",
       },
       rotate: {

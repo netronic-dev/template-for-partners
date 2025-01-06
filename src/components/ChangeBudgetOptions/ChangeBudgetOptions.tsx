@@ -8,7 +8,6 @@ import Select, {
 } from "react-select";
 import { Controller } from "react-hook-form";
 import { ISelectBudgetOptions } from "@/models";
-import style from "./style.module.css";
 import { Icon } from "../Icon";
 
 interface IChangeBudgetOptions {
@@ -92,15 +91,15 @@ const ChangeBudgetOptions: FC<IChangeBudgetOptions> = ({
     return (
       <components.DropdownIndicator {...props}>
         {isMenuOpen ? (
+          <svg id="icon-arrow-up" viewBox="0 0 37 32" width={12} height={12}>
+            <path fill="#000" d="M18.667 0l16.166 28h-32.332l16.166-28z"></path>
+          </svg>
+        ) : (
           <svg id="icon-arrow-down" viewBox="0 0 37 32" width={12} height={12}>
             <path
               fill="#000"
               d="M18.667 32l-16.166-28h32.332l-16.166 28z"
             ></path>
-          </svg>
-        ) : (
-          <svg id="icon-arrow-up" viewBox="0 0 37 32" width={12} height={12}>
-            <path fill="#000" d="M18.667 0l16.166 28h-32.332l16.166-28z"></path>
           </svg>
         )}
       </components.DropdownIndicator>

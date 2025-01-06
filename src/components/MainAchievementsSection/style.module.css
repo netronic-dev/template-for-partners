@@ -1,0 +1,17 @@
+.item_width_two_part {
+  @media (min-width: 640px) and (max-width: 1023px) {
+    width: calc((100% / 2) - 30px);
+  }
+}
+
+.item_width_three_part {
+  @media (min-width: 1024px) {
+    width: calc((100% / 3) - 17px);
+  }
+}
+
+.achievements_img {
+  @media (min-width: 640px) and (max-width: 1023px) {
+    object-position: 61% center;
+  }
+}

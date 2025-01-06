@@ -1,14 +1,32 @@
 "use client";
 
 import Head from "next/head";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useModals } from "../../context/ModalsProvider";
 import { getLocationData } from "@/utils/getLocationData";
+import { CallModalForm } from "../CallModalForm";
 
-const PageLayout = (props: any) => {
+interface IPageLayout {
+  title?: string;
+  description?: string;
+  ogType?: string;
+  ogUrl?: string;
+  ogImage?: string;
+  children: React.ReactNode;
+}
+
+const PageLayout: FC<IPageLayout> = ({
+  title,
+  description,
+  ogType,
+  ogUrl,
+  ogImage,
+  children,
+}) => {
   const modals = useModals();
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getLocationData().then((data: any) => {
       modals.setRegionName(data.region);
     });
@@ -17,15 +35,15 @@ const PageLayout = (props: any) => {
   return (
     <>
       <Head>
-        <title>{props.title || "Lasertag"}</title>
-        <meta name="description" content={props.description || ""} />
-        {props.title && <meta property="og:title" content={props.title} />}
-        {props.description && (
-          <meta property="og:description" content={props.description} />
+        <title>{title || "Lasertag"}</title>
+        <meta name="description" content={description || ""} />
+        {title && <meta property="og:title" content={title} />}
+        {description && (
+          <meta property="og:description" content={description} />
         )}
-        <meta property="og:type" content={props.ogType} />
-        {props.ogUrl && <meta property="og:url" content={props.ogUrl} />}
-        {props.ogImage && <meta property="og:image" content={props.ogImage} />}
+        <meta property="og:type" content={ogType} />
+        {ogUrl && <meta property="og:url" content={ogUrl} />}
+        {ogImage && <meta property="og:image" content={ogImage} />}
       </Head>
       {/* <CookieBanner
         title={
@@ -41,7 +59,28 @@ const PageLayout = (props: any) => {
         decline_btn_text="Decline"
         allow_btn_text="Allow Cookie"
       /> */}
-      <main>{props.children}</main>
+      {modals.callFormVisibility ? (
+        <CallModalForm
+          isOpen={modals.callFormVisibility}
+          closeModal={modals.formCallChangeVisibility}
+          titleForm={
+            <>
+              Fill out the form and <br />{" "}
+              <span className="text-[var(--accent-color)]">get request</span>
+            </>
+          }
+          destinationURL=""
+          textBtn="Get request"
+          submittingText="Sending..."
+          namePlaceholder="Name*"
+          emailPlaceholder="Email*"
+          agreementText="I confirm that I have read and agree to"
+          agreementLinkSpanText="the terms of the privacy policy"
+        />
+      ) : (
+        ""
+      )}
+      <main>{children}</main>
     </>
   );
 };

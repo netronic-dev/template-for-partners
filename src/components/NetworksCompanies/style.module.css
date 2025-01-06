@@ -1,0 +1,8 @@
+.networks_companies_list {
+  @media (min-width: 744px) {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+  }
+}

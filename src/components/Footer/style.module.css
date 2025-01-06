@@ -1,0 +1,5 @@
+.footer_container {
+  @media (min-width: 744px) {
+    flex-direction: row;
+  }
+}

@@ -26,7 +26,7 @@ const button = cva("button", {
     },
     size: {
       standard: ["text-sm tracking-[0.28px] w-[199px] h-[43px]"],
-      full: ["text-base leading-[23px] font-bold w-full h-[56px]"],
+      full: ["text-base leading-[23px] font-bold w-full h-[56px] rounded-[8px]"],
     },
     background: {
       black: [

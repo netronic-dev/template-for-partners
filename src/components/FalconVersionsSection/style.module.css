@@ -1,0 +1,13 @@
+.img_two {
+  @media (min-width: 640px) {
+    height: 439px;
+    width: 172px;
+    right: 20%;
+  }
+
+  @media (min-width: 744px) {
+    height: 489px;
+    width: 222px;
+    bottom: -67%;
+  }
+}

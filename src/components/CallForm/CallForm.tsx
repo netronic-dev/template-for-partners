@@ -1,38 +1,41 @@
-"use client";
-
 import { FC, useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useSelector } from "react-redux";
+import { useSearchParams } from "next/navigation";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-
-import { schema } from "@/constants/validate";
-import { IFormInputs } from "@/models";
-import { Input } from "../Input";
-import { ChangeBudgetOptions } from "../ChangeBudgetOptions";
-import { Agreement } from "../Agreement";
-import { useModals } from "../../context/ModalsProvider";
-import { selectBudgetOptions } from "@/constants/globalConstants";
-import { PrimaryButton } from "../PrimaryButton";
 import { isValidPhoneNumber } from "react-phone-number-input";
-import style from "./style.module.css";
+import { searchParams } from "../../store/searchParamsSlice";
+import { useModals } from "@/context/ModalsProvider";
+import { ICallFormInputs } from "@/models";
+import { Agreement } from "../Agreement";
+import { PrimaryButton } from "../PrimaryButton";
+import { Input } from "../Input";
+import { schema } from "@/constants/callValidate";
 
-interface IFormProps {
-  titleForm: string;
-  textBtn: string;
+interface ICallForm {
+  title: JSX.Element;
+  destinationURL: string;
+  namePlaceholder: string;
+  emailPlaceholder: string;
   agreementText: string;
-  agreementLinkSpanText?: string;
+  agreementLinkSpanText: string;
   agreementLink?: string;
-  submittingText?: string;
+  textBtn: string;
+  submittingText: string;
 }
 
-const Form: FC<IFormProps> = ({
-  textBtn,
-  titleForm,
+const CallForm: FC<ICallForm> = ({
+  title,
+  namePlaceholder,
+  emailPlaceholder,
   agreementText,
   agreementLinkSpanText,
   agreementLink,
+  textBtn,
   submittingText,
+  destinationURL,
 }) => {
   const [regionCode, setRegionCode] = useState<string>("");
   const modals = useModals();
@@ -50,8 +53,6 @@ const Form: FC<IFormProps> = ({
     resolver: yupResolver(schema),
     defaultValues: {
       agreement: true,
-      name: "",
-      email: "",
     },
   });
 
@@ -60,12 +61,34 @@ const Form: FC<IFormProps> = ({
     trigger("agreement");
   };
 
-  const onSubmit = async (values: IFormInputs) => {
+  const queryParams = useSelector(searchParams);
+  const query = useSearchParams();
+
+  const onSubmit = async (values: ICallFormInputs) => {
+    modals?.setUserName(values.name);
+
+    const data = {
+      ...values,
+      phoneNumber: `+${values.phoneNumber}`,
+    };
+
     try {
-      console.log(values);
+      const sendToCRMData = {
+        data,
+        destinationURL: destinationURL,
+        orderName: "Call order | LT NET USA",
+        pageURL: window.location.href,
+        hostname: window.location.hostname,
+        queryParams: queryParams || query,
+      };
+
+      console.log(sendToCRMData, "sendToCRMData");
+
       reset();
+
+      modals.closeModal();
     } catch (error) {
-      console.log(error);
+      console.log(error, "error");
     }
   };
 
@@ -79,21 +102,21 @@ const Form: FC<IFormProps> = ({
 
   return (
     <div>
-      {titleForm && (
-        <h3 className="text-[var(--primary-text-color)] font-manrope text-[40px] font-medium mb-[54px] uppercase">
-          {titleForm}
+      {title && (
+        <h3 className="text-[var(--secondary-text-color)] font-manrope text-[36px] leading-[43px] font-extrabold text-center">
+          {title}
         </h3>
       )}
       <form
-        className={`${style.form} flex flex-col gap-[20px] w-full mx-auto`}
+        className="flex flex-col gap-[20px] w-full mx-auto mt-[46px]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Input
           control={control}
           name="name"
+          placeholder={namePlaceholder}
           error={errors.name?.message}
           rules={{ required: "Name is required" }}
-          label="Name"
         />
         <Controller
           name="phoneNumber"
@@ -152,16 +175,9 @@ const Form: FC<IFormProps> = ({
         <Input
           control={control}
           name="email"
+          placeholder={emailPlaceholder}
           error={errors.email?.message}
           rules={{ required: "Email is required" }}
-          label="Name"
-        />
-        <ChangeBudgetOptions
-          options={selectBudgetOptions}
-          control={control}
-          name="budget"
-          error={errors.budget?.message}
-          placeholder="Budget range"
         />
         <Agreement
           agreementText={agreementText}
@@ -171,12 +187,12 @@ const Form: FC<IFormProps> = ({
           control={control}
           onClick={handleAgreementChange}
           name="agreement"
+          isCallForm
         />
         <PrimaryButton
           type="submit"
-          size="full"
-          background="blue"
           disabled={!isValid || isSubmitting}
+          size="full"
         >
           {isSubmitting ? submittingText || "Submitting..." : textBtn}
         </PrimaryButton>
@@ -185,4 +201,4 @@ const Form: FC<IFormProps> = ({
   );
 };
 
-export default Form;
+export default CallForm;

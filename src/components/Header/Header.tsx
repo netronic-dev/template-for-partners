@@ -5,10 +5,16 @@ import Link from "next/link";
 import { headerNavList } from "@/constants/globalConstants";
 import { Icon } from "../Icon";
 import { PrimaryButton } from "../PrimaryButton";
+import { BurgerMenu } from "../BurgerMenu";
+import { useModals } from "@/context/ModalsProvider";
+import style from "./style.module.css";
 
 const Header = () => {
+  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const modals = useModals();
+
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setIsScrolled(true);
@@ -17,7 +23,9 @@ const Header = () => {
     }
   };
 
-  console.log(isScrolled);
+  const handleOpenMenu = () => {
+    setIsOpenMenu(!isOpenMenu);
+  };
 
   const handleActiveSection = (ref: string) => {
     setActiveSection(ref);
@@ -33,9 +41,11 @@ const Header = () => {
   return (
     <header
       id="main"
-      className="fixed z-20 top-0 left-0 bg-[var(--primary-text-color)] py-[14px] border-[1px] border-solid border-[#C4C4C4] rounded-b-[20px] w-[100vw]"
+      className={`${style.header_box} ${
+        isScrolled ? style.scrolled : ""
+      } fixed z-20 top-0 left-0 bg-[var(--primary-text-color)] py-[14px] border-[1px] border-solid border-[#C4C4C4] rounded-b-[20px] w-[100vw]`}
     >
-      <div className="flex justify-between items-center px-[71px] max-w-[1512px] mx-auto">
+      <div className="flex justify-between items-center px-[15px] xl:px-[71px] max-w-[1512px] mx-auto">
         <Link
           prefetch
           href="#main"
@@ -69,8 +79,22 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <PrimaryButton>Check the price</PrimaryButton>
+        <div className="hidden xl:block">
+          <PrimaryButton onClick={() => modals.formCallChangeVisibility()}>
+            Contact us
+          </PrimaryButton>
+        </div>
+        <Icon
+          name="icon-burger"
+          width={38}
+          height={25}
+          onClick={handleOpenMenu}
+          className="xl:hidden cursor-pointer"
+        />
       </div>
+      {isOpenMenu && (
+        <BurgerMenu isOpenMenu={isOpenMenu} handleOpenMenu={handleOpenMenu} />
+      )}
     </header>
   );
 };

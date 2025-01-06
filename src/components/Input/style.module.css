@@ -1,27 +1,27 @@
 .label_wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .label {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: flex-start;
-  pointer-events: none;
-  transition: all 0.2s ease;
-  color: #000;
-  font-family: Manrope;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 23px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: flex-start;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    color: #000;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
 }
 
 .label_active {
-  display: none;
+    display: none;
 }

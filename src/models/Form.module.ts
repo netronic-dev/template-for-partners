@@ -31,6 +31,13 @@ export interface IFormInputs {
   };
 }
 
+export interface ICallFormInputs {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  agreement: boolean;
+}
+
 export interface ISelectBudgetOptions {
   value: string;
   label: string;

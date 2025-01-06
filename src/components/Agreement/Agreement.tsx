@@ -25,7 +25,7 @@ const Agreement: FC<IAgreement> = ({
 }) => {
   return (
     <div className="relative mb-[15px]">
-      <div className="flex items-center gap-[11px]">
+      <div className="flex items-start lg:items-center gap-[11px]">
         <Controller
           name={name}
           control={control}
@@ -45,7 +45,7 @@ const Agreement: FC<IAgreement> = ({
           )}
         />
         <label
-          className="font-manrope text-[var(--primary-text-color)] text-[14px]
+          className="font-manrope text-[var(--primary-text-color)] text-xs
            leading-[23px]"
           htmlFor={name}
         >

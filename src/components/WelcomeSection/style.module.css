@@ -1,0 +1,33 @@
+.bg_image {
+    position: absolute;
+    width: 667px;
+    height: 746px;
+    z-index: -1;
+    top: 66%;
+    left: -13%;
+
+    @media (min-width: 644px) {
+        width: 1918px;
+        height: 2143px;
+        top: -55%;
+        left: 66%;
+    }
+
+    @media (min-width: 744px) {
+        left: 57%;
+    }
+
+
+    @media (min-width: 1024px) {
+        top: -40%;
+    }
+
+    @media (min-width: 1280px) {
+        top: -41%;
+        left: 49%;
+    }
+
+    @media (min-width: 1536px) {
+        left: 42%;
+    }
+}

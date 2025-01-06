@@ -1,0 +1,13 @@
+.form {
+  @media (min-width: 744px) {
+    width: 344px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 461px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 560px;
+  }
+}
