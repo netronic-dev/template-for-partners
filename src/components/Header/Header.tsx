@@ -10,7 +10,7 @@ import { useModals } from "@/context/ModalsProvider";
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [, setIsScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const modals = useModals();
 
