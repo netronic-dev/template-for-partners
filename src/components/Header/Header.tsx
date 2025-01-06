@@ -7,7 +7,6 @@ import { Icon } from "../Icon";
 import { PrimaryButton } from "../PrimaryButton";
 import { BurgerMenu } from "../BurgerMenu";
 import { useModals } from "@/context/ModalsProvider";
-import style from "./style.module.css";
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
@@ -41,9 +40,7 @@ const Header = () => {
   return (
     <header
       id="main"
-      className={`${style.header_box} ${
-        isScrolled ? style.scrolled : ""
-      } fixed z-20 top-0 left-0 bg-[var(--primary-text-color)] py-[14px] border-[1px] border-solid border-[#C4C4C4] rounded-b-[20px] w-[100vw]`}
+      className="fixed z-20 top-0 left-0 bg-[var(--primary-text-color)] py-[14px] border-[1px] border-solid border-[#C4C4C4] rounded-b-[20px] w-[100vw]"
     >
       <div className="flex justify-between items-center px-[15px] xl:px-[71px] max-w-[1512px] mx-auto">
         <Link

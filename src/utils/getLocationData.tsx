@@ -10,7 +10,7 @@ export async function getLocationData() {
     zipcode: "",
     state: "",
   };
-  let cookieIp = getCookieByKey("ip");
+  const cookieIp = getCookieByKey("ip");
 
   const clientIP = await axios.get("https://api.ipify.org/?format=json");
   if (clientIP.data.ip === cookieIp) {
@@ -35,7 +35,7 @@ export async function getLocationData() {
           state: response.data.region,
         };
       })
-      .catch(async (error) => {
+      .catch(async () => {
         await axios
           .get("https://ipinfo.io/json?token=eba5da567f5208")
           .then((response) => {
@@ -51,7 +51,7 @@ export async function getLocationData() {
           .catch(console.log);
       });
 
-    let date = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+    const date = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
     for (const [key, value] of Object.entries(locationData)) {
       document.cookie = `${key}=${value}; expires="${date}"`;
     }
