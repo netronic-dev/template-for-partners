@@ -57,7 +57,7 @@ const OurEquipmentSection = () => {
                           src={item.img}
                           alt="Product img"
                           fill
-                          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                          sizes="100%"
                           className="object-cover object-center rounded-2xl"
                           loading="lazy"
                         />
@@ -114,7 +114,7 @@ const OurEquipmentSection = () => {
                           src={item.img}
                           alt="Product img"
                           fill
-                          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                          sizes="100%"
                           className="object-cover object-center rounded-2xl"
                         />
                       </div>
@@ -203,7 +203,7 @@ const OurEquipmentSection = () => {
                           src={item.img}
                           alt="Slider img"
                           fill
-                          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                          sizes="100%"
                           className="object-cover object-center rounded-2xl"
                         />
                       </div>

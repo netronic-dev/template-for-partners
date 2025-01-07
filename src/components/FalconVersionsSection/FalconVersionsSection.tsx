@@ -37,7 +37,7 @@ const FalconVersionsSection = () => {
                 src={imgOne}
                 alt="FALCON F1"
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                sizes="100%"
                 className="object-contain"
               />
             </div>
@@ -65,7 +65,7 @@ const FalconVersionsSection = () => {
                 src={imgTwo}
                 alt="FALCON F2"
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                sizes="100%"
                 className="object-contain"
               />
             </div>
@@ -91,7 +91,7 @@ const FalconVersionsSection = () => {
                 src={imgThree}
                 alt="FALCON LUX"
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                sizes="100%"
                 className="object-contain"
               />
             </div>

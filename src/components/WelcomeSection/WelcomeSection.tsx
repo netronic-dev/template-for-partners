@@ -38,7 +38,7 @@ const WelcomeSection = () => {
                 src={imgOne}
                 alt="img-one"
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                sizes="100%"
                 className="object-contain"
               />
             </div>
@@ -47,7 +47,7 @@ const WelcomeSection = () => {
                 src={imgTwo}
                 alt="img-two"
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                sizes="100%"
                 className="object-contain"
               />
             </div>
@@ -56,7 +56,7 @@ const WelcomeSection = () => {
                 src={imgThree}
                 alt="img-three"
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                sizes="100%"
                 className="object-contain"
               />
             </div>
@@ -65,7 +65,7 @@ const WelcomeSection = () => {
                 src={imgFour}
                 alt="img-four"
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 361px"
+                sizes="100%"
                 className="object-contain"
               />
             </div>
