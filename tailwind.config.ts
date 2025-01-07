@@ -10,11 +10,11 @@ export default {
     extend: {
       colors: {},
       backgroundImage: {
-        "mobile-hero-img": "url('./public/images/mobile-hero-img.webp')",
-        "tablet-hero-img": "url('./public/images/tablet-hero-img.webp')",
+        "mobile-hero-img": "url('/images/mobile-hero-img.webp')",
+        "tablet-hero-img": "url('/images/tablet-hero-img.webp')",
         "big-tablet-hero-img":
-          "url('./public/images/big-tablet-hero-img.webp')",
-        "hero-img": "url('./public/images/hero-img.webp')",
+          "url('/images/big-tablet-hero-img.webp')",
+        "hero-img": "url('/images/hero-img.webp')",
       },
       rotate: {
         "90.139": "90.139deg",
