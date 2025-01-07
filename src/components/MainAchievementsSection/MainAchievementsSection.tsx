@@ -121,7 +121,7 @@ const MainAchievementsSection = () => {
                   loading="lazy"
                   fill
                   sizes="100%"
-                  className={`object-contain sm:object-cover rounded-[20px] ${style.achievements_img}`}
+                  className={`object-cover rounded-[20px] ${style.achievements_img}`}
                 />
               </li>
             ) : (
