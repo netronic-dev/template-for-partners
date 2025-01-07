@@ -25,8 +25,8 @@ This repository was created as a template for your projects. Please follow these
    - After creating your repository, navigate to it.
    - Click the "Code" button and copy the repository URL.
    - Run the following command in your terminal:
-     ```bash
-     git clone <URL of your new repository>
+   ```bash
+    git clone <URL of your new repository>
      ```
 
 3. **Navigate to the Project Directory**
@@ -44,7 +44,7 @@ This repository was created as a template for your projects. Please follow these
 
 6. **Run the Development Server** 
 - Start the project in development mode:
-      ```bash
+    ```bash
     npm run dev
      ```
 - Open http://localhost:3000 in your browser to view the application.
@@ -107,8 +107,8 @@ Here are the key folders and files in the repository:
    - Після створення власного репозиторію перейдіть до нього.
    - Натисніть кнопку "Code" та скопіюйте URL репозиторію.
    - Виконайте команду у вашому терміналі:
-     ```bash
-     git clone <URL вашого нового репозиторію>
+   ```bash
+    git clone <URL вашого нового репозиторію>
      ```
 
 3. **Перейдіть у папку проекту**
@@ -126,7 +126,7 @@ Here are the key folders and files in the repository:
 
 6. **Запустіть локальний сервер для розробки** 
 - Запустіть проект у режимі розробки:
-      ```bash
+    ```bash
     npm run dev
      ```
 - Відкрийте http://localhost:3000 у вашому браузері, щоб побачити результат.
