@@ -15,8 +15,8 @@
     "bad-words-next": "^2.3.1",
     "class-variance-authority": "^0.7.1",
     "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.0",
     "react-phone-input-2": "^2.15.1",
     "react-phone-number-input": "^3.4.10",
@@ -26,9 +26,9 @@
     "yup": "^1.5.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^20.17.12",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
